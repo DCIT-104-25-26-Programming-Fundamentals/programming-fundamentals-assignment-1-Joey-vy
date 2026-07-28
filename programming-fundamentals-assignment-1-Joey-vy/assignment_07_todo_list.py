@@ -78,4 +78,36 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
+def show_menu():
+    print("\n1. Add task\n2. View tasks\n3. Delete task\n4. Quit")
+
+def main():
+    tasks = []
+    
+    while True:
+        show_menu()
+        choice = input("Enter choice (1-4): ")
+        
+        if choice == "1":
+            task = input("Enter task: ")
+            tasks.append(task)
+            print(f'Added: "{task}"')
+            
+        elif choice == "2":
+            print("\nYour Tasks:")
+            for i in range(len(tasks)):
+                print(f"{i + 1}. {tasks[i]}")
+                
+        elif choice == "3":
+            for i in range(len(tasks)):
+                print(f"{i + 1}. {tasks[i]}")
+            num = int(input("Enter number to delete: "))
+            removed = tasks.pop(num - 1)
+            print(f'Removed: "{removed}"')
+            
+        elif choice == "4":
+            print("Goodbye!")
+            break
+
+main()
 
